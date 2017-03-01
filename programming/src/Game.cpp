@@ -127,6 +127,7 @@ void Game::update()
 void Game::render(double ms)
 {
 	m_systemManager.update<RenderSystem>(0.0);
+	m_systemManager.update<HUDSystem>(ms);
 	m_window.display();
 }
 
@@ -138,12 +139,19 @@ void Game::createSystems()
 	auto spTexture = std::make_shared<sf::Texture>();
 	spTexture->loadFromFile(resourcePath() + "images/SpriteSheet.png");
 	spTexture->setSmooth(true);
+	auto font = std::make_shared<sf::Font>();
+	if (!font->loadFromFile(resourcePath() + "fonts/akashi.ttf"))
+	{
+		std::cout << "ERROR: loading font" << std::endl;
+	}
+
 
 	m_systemManager.add<LevelSystem>(m_entityManager, m_eventManager);
 	m_systemManager.add<RenderSystem>(m_window, spTexture);	
 	m_systemManager.add<MovementSystem>();	
 	m_systemManager.add<PlayerControlSystem>(m_keyHandler);
 	m_systemManager.add<AiControlSystem>();
+	m_systemManager.add<HUDSystem>(m_window, font);
 	m_systemManager.configure();
 }
 

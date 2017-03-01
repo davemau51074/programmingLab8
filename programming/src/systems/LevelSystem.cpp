@@ -2,6 +2,7 @@
 #include "components/Wall.h" 
 #include "components/AI.h"
 #include "ai/TankAI.h"
+#include "WayPoint.h"
 
 LevelSystem::LevelSystem(entityx::EntityManager& entities,
 						 entityx::EventManager& eventManager)
@@ -51,6 +52,12 @@ void LevelSystem::receive(const EvInit& e)
    for (ObstacleData const &obstacle : e.m_level.m_obstacles)
    {
 	   WallCreator(obstacle.m_type, obstacle.m_position, obstacle.m_rotation).create(m_entityManager.create());
+   }
+
+   for (NodeData const &waypoint : e.m_level.m_waypoint)
+   {
+	  WayPointCreator(waypoint.m_type, waypoint.m_position, waypoint.m_rotation).create(m_entityManager.create());
+
    }
 }
 

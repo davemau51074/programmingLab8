@@ -15,11 +15,13 @@ class TankAi
 {
 public:
 
-   TankAi(std::vector<sf::CircleShape> const & obstacles, entityx::Entity::Id id);
+   TankAi(std::vector<sf::CircleShape> const & obstacles, entityx::Entity::Id id, std::vector<sf::CircleShape> const & nodes);
 
 
    void update(entityx::Entity::Id playerId,  
 	           entityx::Entity::Id aiId,
+			   entityx::Entity::Id nodeId,
+			   entityx::EventManager& events,
                entityx::EntityManager& entities,
                double dt);
  
@@ -29,6 +31,8 @@ public:
 	   AI_ID_SEEK_SHOOT_AT_PLAYER
    };
 
+   int getCurrentNode();
+
 private:
 	sf::Vector2f seek(entityx::Entity::Id playerId,
 					  entityx::Entity::Id aiId,
@@ -36,6 +40,8 @@ private:
 
 	sf::Vector2f collisionAvoidance(entityx::Entity::Id aiId, 
 						            entityx::EntityManager& entities);
+
+	sf::Vector2f followPath(entityx::Entity::Id aiId, entityx::EventManager& events, entityx::EntityManager& entities);
 
 	const sf::CircleShape findMostThreateningObstacle(entityx::Entity::Id aiId,
 													  entityx::EntityManager& entities) ;
@@ -56,16 +62,22 @@ private:
 
 	float MAX_SPEED = 50.0f;
 
+	float timer;
+
+	int path = 0;
 
 	std::vector<sf::CircleShape> const & m_obstacles;
+	std::vector<sf::CircleShape> const & m_nodes;
+	
 
 	enum class AiBehaviour
 	{
 		SEEK_PLAYER,
 		STOP,
-		RETREAT
+		RETREAT,
+		FOLLLOW_PATH
 	} m_aiBehaviour;
   
-
+	int m_currentNode = 0;
 };
 

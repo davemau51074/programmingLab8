@@ -84,3 +84,87 @@ obstacles:
    - type: wall
      position: {x: 1032, y: 632}
      rotation: 0
+waypoint:
+   - type: node
+     position: {x: 450, y: 200}
+     rotation: 90
+     id: 1
+   - type: node
+     position: {x: 810, y: 200}
+     rotation: 90
+     id: 2
+   - type: node
+     position: {x: 450, y: 410}
+     rotation: 90
+     id: 3
+   - type: node
+     position: {x: 825, y: 410}
+     rotation: 90
+     id: 4
+   - type: node
+     position: {x: 1025, y: 410}
+     rotation: 90
+     id: 5
+   - type: node
+     position: {x: 1250, y: 550}
+     rotation: 90
+     id: 6
+   - type: node
+     position: {x: 825, y: 530}
+     rotation: 90
+     id: 7
+   - type: node
+     position: {x: 830, y: 728}
+     rotation: 90
+     id: 8
+   - type: node
+     position: {x: 705, y: 830}
+     rotation: 90
+     id: 9
+   - type: node
+     position: {x: 465, y: 840}
+     rotation: 90
+     id: 10
+   - type: node
+     position: {x: 405, y: 718}
+     rotation: 90
+     id: 11
+   - type: node
+     position: {x: 276, y: 540}
+     rotation: 90
+     id: 12
+   - type: node
+     position: {x: 118, y: 470}
+     rotation: 90
+     id: 13
+   - type: node
+     position: {x: 118, y: 260}
+     rotation: 90
+     id: 14
+   - type: node
+     position: {x: 240, y: 130}
+     rotation: 90
+     id: 15
+   - type: node
+     position: {x: 440, y: 85}
+     rotation: 90
+     id: 16
+   - type: node
+     position: {x: 650, y: 150}
+     rotation: 90
+     id: 17
+   - type: node
+     position: {x: 1025, y: 65}
+     rotation: 90
+     id: 17
+   - type: node
+     position: {x: 1247, y: 67}
+     rotation: 90
+     id: 17
+   - type: node
+     position: {x: 1375, y: 379}
+     rotation: 90
+     id: 17
+     
+
+

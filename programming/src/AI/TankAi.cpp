@@ -1,25 +1,37 @@
 #include "ai/TankAi.h"
 
-
-TankAi::TankAi(std::vector<sf::CircleShape> const & obstacles, entityx::Entity::Id id)
-  : m_aiBehaviour(AiBehaviour::SEEK_PLAYER)
+TankAi::TankAi(std::vector<sf::CircleShape> const & obstacles, entityx::Entity::Id id, std::vector<sf::CircleShape> const & nodes)
+  : m_aiBehaviour(AiBehaviour::FOLLLOW_PATH)
   , m_steering(0,0)
   , m_obstacles(obstacles)
+  , m_nodes(nodes)
 {
+
+	timer = 0;
 }
 
 void TankAi::update(entityx::Entity::Id playerId,
 	entityx::Entity::Id aiId,
+	entityx::Entity::Id nodeId,
+	entityx::EventManager& events,
 	entityx::EntityManager& entities,
 	double dt)
 {
+	timer += (1.f / 60.f);
+
 	entityx::Entity aiTank = entities.get(aiId);
 	Motion::Handle motion = aiTank.component<Motion>();
 	Position::Handle position = aiTank.component<Position>();
 
+	
+	sf::Vector2f vectorToPoint = followPath(aiId,
+		events,
+		entities);
+
 	sf::Vector2f vectorToPlayer = seek(playerId,
 		aiId,
 		entities);
+
 	switch (m_aiBehaviour)
 	{
 	case AiBehaviour::SEEK_PLAYER:
@@ -27,10 +39,18 @@ void TankAi::update(entityx::Entity::Id playerId,
 		m_steering += collisionAvoidance(aiId, entities);
 		m_steering = Math::truncate(m_steering, MAX_FORCE);
 		m_velocity = Math::truncate(m_velocity + m_steering, MAX_SPEED);
-
 		break;
 	case AiBehaviour::STOP:
 		motion->m_speed = 0;
+		break;
+	case AiBehaviour::FOLLLOW_PATH:
+		m_steering += thor::unitVector(vectorToPoint);
+		m_steering += collisionAvoidance(aiId, entities);
+		m_steering = Math::truncate(m_steering, MAX_FORCE);
+		m_velocity = Math::truncate(m_velocity + m_steering, MAX_SPEED);
+
+		events.emit<EvNextWayPoint>(path, timer);
+		break;
 	default:
 		break;
 	}
@@ -52,28 +72,51 @@ void TankAi::update(entityx::Entity::Id playerId,
 	else if ((static_cast<int>(std::round(dest - currentRotation + 360))) % 360 < 180)
 	{
 		// rotate clockwise
-		position->m_rotation += 1;
+		//position->m_rotation += 1;
+		position->m_rotation = static_cast<int>((position->m_rotation) + 1) % 360;
 	}
 	else
 	{
 		// rotate anti-clockwise
-		position->m_rotation -= 1;
+		//position->m_rotation -= 1;
+		position->m_rotation = static_cast<int>((position->m_rotation) - 1) % 360;
 	}
 
-	
-	if (thor::length(vectorToPlayer) < MAX_SEE_AHEAD)
+	switch (m_aiBehaviour)
 	{
-		m_aiBehaviour = AiBehaviour::STOP;
-	}	
-	else
-	{
-		motion->m_speed = thor::length(m_velocity);	
-		m_aiBehaviour = AiBehaviour::SEEK_PLAYER;
+	case AiBehaviour::SEEK_PLAYER:
+		if (thor::length(vectorToPlayer) < MAX_SEE_AHEAD)
+		{
+			m_aiBehaviour = AiBehaviour::STOP;
+		}
+		else
+		{
+			motion->m_speed = thor::length(m_velocity);
+			m_aiBehaviour = AiBehaviour::SEEK_PLAYER;
+		}
+		break;
+	case AiBehaviour::FOLLLOW_PATH:
+		if (thor::length(vectorToPoint) < MAX_SEE_AHEAD)
+		{
+			m_aiBehaviour = AiBehaviour::STOP;
+		}
+		else
+		{
+			motion->m_speed = thor::length(m_velocity);
+			m_aiBehaviour = AiBehaviour::FOLLLOW_PATH;
+		}
+		break;
 	}
+}
+
+int TankAi::getCurrentNode()
+{
+	return m_currentNode;
 }
 
 sf::Vector2f TankAi::seek(entityx::Entity::Id playerId,
 						  entityx::Entity::Id aiId,
+						  
 	                      entityx::EntityManager& entities) const
 {
 	entityx::Entity aiTank = entities.get(aiId);
@@ -85,7 +128,6 @@ sf::Vector2f TankAi::seek(entityx::Entity::Id playerId,
 	sf::Vector2f thePlayerpos = playerPos->m_position;
 	sf::Vector2f theAIPosition = aiPos->m_position;
 	sf::Vector2f vectorToPlayer = playerPos->m_position - aiPos->m_position;
-
 	return vectorToPlayer;
 }
 
@@ -135,18 +177,36 @@ const sf::CircleShape TankAi::findMostThreateningObstacle(entityx::Entity::Id ai
 		{
 
 			closest = m_obstacles[i];
-
-
 		}
-	
 	}
-
-
-
-
-
-
-
 	return closest;
 }
 
+sf::Vector2f TankAi::followPath(entityx::Entity::Id aiId, entityx::EventManager& events, entityx::EntityManager& entities)
+{
+	
+	entityx::Entity tankAi = entities.get(aiId);
+	Position::Handle aiPos = tankAi.component<Position>();
+
+	sf::Vector2f VectorToNode;
+	int size = m_nodes.size();
+
+		if (Math::distance(aiPos->m_position, m_nodes.at(path).getPosition()) < m_nodes.at(path).getRadius() + 40)
+		{
+			VectorToNode = m_nodes.at(path).getPosition() - aiPos->m_position;
+			path++;
+			if (path == size)
+			{
+				path = 0;
+			}
+			
+		}
+		else
+		{
+		/*	sf::Vector2f temp = m_nodes.at(path).getPosition();
+			sf::Vector2f tempAI = aiPos->m_position;*/
+			VectorToNode = m_nodes.at(path).getPosition() - aiPos->m_position;
+		}
+		
+	return VectorToNode;
+}

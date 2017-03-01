@@ -8,6 +8,7 @@
 #include "components/Volume.h"
 #include "components/Position.h"
 #include "components/Display.h"
+#include "WayPoint.h"
 
 class AiControlSystem
       : public entityx::System<AiControlSystem>
@@ -21,9 +22,13 @@ public:
 
    void receive(const EvReportPlayerId& e);
 
+   //void recieve(const EvReportWayPointId& e);
+
    void receive(const entityx::ComponentAddedEvent<Ai>& e);
 
    void receive(const entityx::ComponentAddedEvent<Wall>& e);
+
+   void receive(const entityx::ComponentAddedEvent<WayPoint>& e);
 
    void update(entityx::EntityManager &entities,
                entityx::EventManager &events,
@@ -34,7 +39,11 @@ private:
 	std::unique_ptr<TankAi> m_tankAi;
 
 	entityx::Entity::Id m_playerId;
+	entityx::Entity::Id m_wayPoint;
 
 	std::vector<sf::CircleShape> m_obstacles;
+	std::vector<sf::CircleShape> m_waypoint;
+
+	std::vector<entityx::Entity::Id> m_ids;
 };
 

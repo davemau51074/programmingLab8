@@ -1,5 +1,17 @@
 #include "utils/LevelLoader.h"
 
+
+
+
+void operator >> (const YAML::Node& waypointnode, NodeData& node)
+{
+	node.m_type = waypointnode["type"].as<std::string>();
+	node.m_position.x = waypointnode["position"]["x"].as<float>();
+	node.m_position.y = waypointnode["position"]["y"].as<float>();
+	node.m_rotation = waypointnode["rotation"].as<double>();
+}
+
+
 void operator >> (const YAML::Node& obstacleNode, ObstacleData& obstacle)
 {
    obstacle.m_type = obstacleNode["type"].as<std::string>();
@@ -43,6 +55,14 @@ void operator >> (const YAML::Node& levelNode, LevelData& level)
 	  ObstacleData obstacle;
 	  obstaclesNode[i] >> obstacle;
 	  level.m_obstacles.push_back(obstacle);
+   }
+
+   const YAML::Node& wayPointNode = levelNode["waypoint"].as<YAML::Node>();
+   for(unsigned i = 0; i < wayPointNode.size(); i++)
+   {
+	   NodeData wayPoint;
+	   wayPointNode[i] >> wayPoint;
+	   level.m_waypoint.push_back(wayPoint);
    }
 }
 

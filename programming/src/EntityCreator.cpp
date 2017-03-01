@@ -1,6 +1,7 @@
 #include "EntityCreator.h"
 #include "components\Wall.h"
 #include  "components\Ai.h"
+#include "WayPoint.h"
 
 BackgroundCreator::BackgroundCreator(const std::string& fileName)
 	: m_fileName(fileName)
@@ -97,4 +98,26 @@ void WallCreator::create(entityx::Entity& entity)
 	entity.assign<Display>(sf::IntRect(2, 129, 33, 23));
 	entity.assign<Position>(m_position, m_rotation);
 	entity.assign<Wall>();
+}
+
+
+WayPointCreator::WayPointCreator(std::string type,
+	sf::Vector2f position,
+	double rotation)
+
+	: m_type(type)
+	, m_position(position)
+	, m_rotation(rotation)
+{
+}
+
+void WayPointCreator::create(entityx::Entity& entity2)
+{
+	auto volume = Volume();
+	volume.m_box = CollisionBox(33, 23);
+
+	entity2.assign<Volume>(volume);
+	entity2.assign<Display>(sf::IntRect(2, 129, 33, 23));
+	entity2.assign<Position>(m_position, m_rotation);
+	entity2.assign<WayPoint>();
 }

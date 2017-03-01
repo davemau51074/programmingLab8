@@ -1,30 +1,39 @@
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\vc140.pdb
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\vc140.idb
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\background.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\display.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\motion.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\parent.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\position.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\tank.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\turret.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\volume.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\entitycreator.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\game.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\gamemanager.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\main.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\resourcepath.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\screensize.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\levelsystem.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\movementsystem.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\rendersystem.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\collisionbox.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\levelloader.obj
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\ecs_example.ilk
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\ecs_example.exe
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\ecs_example.pdb
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\ecs_example.tlog\cl.command.1.tlog
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\ecs_example.tlog\cl.read.1.tlog
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\ecs_example.tlog\cl.write.1.tlog
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\ecs_example.tlog\link.command.1.tlog
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\ecs_example.tlog\link.read.1.tlog
-c:\users\ross\documents\visual studio 2015\projects\ecs_example_lab6\debug\ecs_example.tlog\link.write.1.tlog
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\vc140.pdb
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\vc140.idb
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\tank.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\turret.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\volume.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\wall.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\entitycreator.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\game.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\gamemanager.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\keyhandler.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\main.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\resourcepath.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\screensize.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\aicontrolsystem.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\levelsystem.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\movementsystem.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\playercontrolsystem.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\rendersystem.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\btmath.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\collisionbox.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\levelloader.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\waypoint.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\tankai.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\ai.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\background.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\display.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\motion.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\parent.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\playercontrol.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\position.obj
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\ecs_example.ilk
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\ecs_example.exe
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\ecs_example.pdb
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\ecs_example.tlog\cl.command.1.tlog
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\ecs_example.tlog\cl.read.1.tlog
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\ecs_example.tlog\cl.write.1.tlog
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\ecs_example.tlog\link.command.1.tlog
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\ecs_example.tlog\link.read.1.tlog
+c:\users\c00202334\desktop\programmingtankwithwall\programming\debug\ecs_example.tlog\link.write.1.tlog

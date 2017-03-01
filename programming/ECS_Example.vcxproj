@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HUDSystem.h" />
     <ClInclude Include="include\AI\TankAi.h" />
     <ClInclude Include="include\components\Ai.h" />
     <ClInclude Include="include\components\Background.h" />
@@ -47,8 +48,10 @@
     <ClInclude Include="include\utils\BTMath.h" />
     <ClInclude Include="include\utils\CollisionBox.h" />
     <ClInclude Include="include\utils\LevelLoader.h" />
+    <ClInclude Include="WayPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HUDSystem.cpp" />
     <ClCompile Include="src\AI\TankAi.cpp" />
     <ClCompile Include="src\components\Ai.cpp" />
     <ClCompile Include="src\components\Background.cpp" />
@@ -76,6 +79,7 @@
     <ClCompile Include="src\utils\BTMath.cpp" />
     <ClCompile Include="src\utils\CollisionBox.cpp" />
     <ClCompile Include="src\utils\LevelLoader.cpp" />
+    <ClCompile Include="WayPoint.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6EE6159A-995A-4B16-B956-E569C13351B0}</ProjectGuid>

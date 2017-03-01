@@ -14,6 +14,7 @@
 #include "KeyHandler.h"
 #include "components/PlayerControl.h"
 #include<systems\PlayerControlSystem.h>
+#include "HUDSystem.h"
 /// <summary>
 /// @Author Ross Palmer
 /// @Version 1.0

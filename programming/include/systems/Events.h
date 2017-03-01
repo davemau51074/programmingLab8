@@ -62,3 +62,15 @@ struct EvReportPlayerId : public entityx::Event<EvReportPlayerId>
 
 	entityx::Entity::Id m_playerId;
 };
+
+struct EvNextWayPoint : public entityx::Event<EvNextWayPoint>
+{
+	EvNextWayPoint(int nextWayPoint, float timer)
+		: m_nextWayPoint(nextWayPoint),
+		 m_timer(timer)
+	{
+	}
+
+	int m_nextWayPoint;
+	float m_timer;
+};

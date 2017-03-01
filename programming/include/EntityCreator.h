@@ -14,6 +14,7 @@
 #include "utils/LevelLoader.h"
 #include "components\PlayerControl.h"
 
+
 class BackgroundCreator : public ICreatable
 {
 public:
@@ -76,3 +77,18 @@ private:
 	double m_rotation;
 };
 
+class WayPointCreator : public ICreatable
+{
+public:
+
+	WayPointCreator(std::string type,
+		sf::Vector2f position,
+		double rotation);
+
+	void create(entityx::Entity& entity2);
+
+private:
+	std::string m_type;
+	sf::Vector2f m_position;
+	double m_rotation;
+};

@@ -123,6 +123,12 @@
     <ClInclude Include="include\utils\BTMath.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
+    <ClInclude Include="WayPoint.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="HUDSystem.h">
+      <Filter>Source Files\systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EntityCreator.cpp">
@@ -205,6 +211,12 @@
     </ClCompile>
     <ClCompile Include="src\AI\TankAi.cpp">
       <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="WayPoint.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="HUDSystem.cpp">
+      <Filter>Header Files\systems</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
